@@ -20,22 +20,21 @@ spec:
     - Api
   stk-projects-only: false
   inputs:
-    - label: Type name of your resource
-      name: resource
+    - label: nome do projeto
+      name: default_project_name
       type: text
       required: true
-      default: Client
-      pattern: '([A-Z][a-z]+)+'
-      help: 'Inform your resource name (e.g.: Client)'
-    - label: Choose http method of new endpoint
-      name: method
+      pattern: '([a-z]+-*)+'
+      help: 'Insira um nome válido (exemplo: meu-projeto)'
+      global: true
+
+    - label: Versão Golang
+      name: default_golang_version
       type: text
       items:
-        - GET
-        - POST
-        - PUT
-        - DELETE
-        - PATCH
-      default: GET
+        - "1.21"
+        - "1.20"
+        - "1.19"
+        - "1.18"
+      default: "1.21"
       required: true
-      help: 'Inform the method of the endpoint (e.g.: post or delete)'
